@@ -1,30 +1,4 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Thêm Mới</title>
-    <link href="style.css" rel="stylesheet">
-</head>
-<body>
-<?php
-include 'db.php';
 
-// Nếu dữ liệu được post lên
-// đừng dùng if($_POST) vì hay bị lỗi, nhất là lúc delete
-if ($_SERVER['REQUEST_METHOD'] === 'POST')
-{
-    // thì lưu vào db
-    $sql = "
-        INSERT INTO `SinhVien`
-        SET `Name`='{$_POST["input_name1"]}',
-            `Mat_Khau`='{$_POST["input_name2"]}',
-            `nam_sinh`='{$_POST["input_name3"]}'
-    ";
-    
-    //echo $sql;
-    //die();
-    
-    db_q($sql);
     
     $_SESSION["SUCCESS_MSG"] = "Đã thêm mới thành công !";
     
